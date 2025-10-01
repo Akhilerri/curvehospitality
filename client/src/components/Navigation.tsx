@@ -18,7 +18,7 @@ export function Navigation() {
   }, []);
 
   const navLinks = [
-    { label: "Services", href: "#process" },
+    { label: "Services", href: "/process" },
     { label: "Projects", href: "#projects" },
     { label: "Company", href: "#about" },
     { label: "Events", href: "#events" },
@@ -32,13 +32,8 @@ export function Navigation() {
     >
       <nav className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href="/">
-            <a
-              className="text-2xl font-bold text-primary hover-elevate px-2 py-1 rounded-md"
-              data-testid="link-home"
-            >
-              Curve
-            </a>
+          <Link href="/" className="text-2xl font-bold text-primary hover-elevate px-2 py-1 rounded-md" data-testid="link-home">
+            Curve
           </Link>
 
           <div className="hidden md:flex items-center gap-1">
