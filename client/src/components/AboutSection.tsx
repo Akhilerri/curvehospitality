@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Wrench, Shield, Users, Package } from "lucide-react";
 import showroomImage from "@assets/generated_images/Modern_furniture_showroom_display_154964c0.png";
 
 export function AboutSection() {
@@ -8,21 +9,29 @@ export function AboutSection() {
       title: "Custom Manufacturing",
       description:
         "Tailored solutions for every client need with our in-house manufacturing capabilities.",
+      icon: Wrench,
+      color: "text-blue-600",
     },
     {
       title: "Quality Assurance",
       description:
         "Stringent quality control processes ensuring the highest standards in every product.",
+      icon: Shield,
+      color: "text-green-600",
     },
     {
       title: "Expert Design Team",
       description:
         "Award-winning interior designers with extensive hospitality industry experience.",
+      icon: Users,
+      color: "text-purple-600",
     },
     {
       title: "Comprehensive Service",
       description:
         "From concept to delivery, we manage every aspect of your FF&E procurement.",
+      icon: Package,
+      color: "text-orange-600",
     },
   ];
 
@@ -68,18 +77,26 @@ export function AboutSection() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
-          {features.map((feature, index) => (
-            <Card
-              key={index}
-              className="p-6 hover-elevate transition-all duration-300"
-              data-testid={`card-feature-${index}`}
-            >
-              <h3 className="text-xl font-semibold text-foreground mb-3">
-                {feature.title}
-              </h3>
-              <p className="text-muted-foreground">{feature.description}</p>
-            </Card>
-          ))}
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
+            return (
+              <Card
+                key={index}
+                className="p-6 hover-elevate transition-all duration-300 group"
+                data-testid={`card-feature-${index}`}
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className={`p-2 rounded-lg bg-muted group-hover:bg-primary/10 transition-colors`}>
+                    <Icon className={`h-6 w-6 ${feature.color} group-hover:scale-110 transition-transform`} />
+                  </div>
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground">{feature.description}</p>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>

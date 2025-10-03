@@ -1,18 +1,16 @@
-import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "wouter";
 import guestRoomImage from "@assets/generated_images/Modern_hotel_guest_room_6281e19b.png";
 import lobbyImage from "@assets/generated_images/Luxury_hotel_lobby_interior_ae77a8c3.png";
 import restaurantImage from "@assets/generated_images/Hotel_restaurant_interior_design_c2131a5e.png";
-import suiteImage from "@assets/generated_images/Hotel_suite_bedroom_luxury_1c5c2afa.png";
-import loungeImage from "@assets/generated_images/Hotel_lounge_area_contemporary_933edc15.png";
-import heroImage from "@assets/generated_images/Luxury_hotel_interior_hero_c7c59af4.png";
 
 export function ProjectsGallery() {
-  const [activeFilter, setActiveFilter] = useState("All");
-
-  const projects = [
+  // UPDATED: Only show top 3 featured projects - NO FILTERS - FORCE REFRESH
+  console.log("ProjectsGallery component loaded - showing only 3 projects");
+  
+  const featuredProjects = [
     {
       id: 1,
       title: "Modern Guest Room Collection",
@@ -34,46 +32,12 @@ export function ProjectsGallery() {
       image: restaurantImage,
       description: "Elegant dining furniture and ambient lighting",
     },
-    {
-      id: 4,
-      title: "Executive Suite Bedroom",
-      category: "Suites",
-      image: suiteImage,
-      description: "Luxury bedding and custom headboard design",
-    },
-    {
-      id: 5,
-      title: "Contemporary Lounge",
-      category: "Lounges",
-      image: loungeImage,
-      description: "Modern seating arrangement with warm palette",
-    },
-    {
-      id: 6,
-      title: "Premium Hotel Interior",
-      category: "Lobbies",
-      image: heroImage,
-      description: "Complete FF&E package with modern design",
-    },
   ];
-
-  const filters = [
-    "All",
-    "Guest Rooms",
-    "Lobbies",
-    "Restaurants",
-    "Suites",
-    "Lounges",
-  ];
-
-  const filteredProjects =
-    activeFilter === "All"
-      ? projects
-      : projects.filter((p) => p.category === activeFilter);
 
   return (
     <section id="projects" className="py-20 md:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
+        {/* Header Section */}
         <div className="text-center mb-12">
           <span className="text-sm font-semibold uppercase tracking-wider text-primary mb-4 block">
             Our Portfolio
@@ -88,21 +52,11 @@ export function ProjectsGallery() {
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {filters.map((filter) => (
-            <Button
-              key={filter}
-              variant={activeFilter === filter ? "default" : "outline"}
-              onClick={() => setActiveFilter(filter)}
-              data-testid={`button-filter-${filter.toLowerCase().replace(" ", "-")}`}
-            >
-              {filter}
-            </Button>
-          ))}
-        </div>
+        {/* NO FILTER BUTTONS - REMOVED COMPLETELY */}
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project) => (
+        {/* Project Grid - Only 3 Projects */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {featuredProjects.map((project) => (
             <Card
               key={project.id}
               className="group overflow-hidden hover-elevate transition-all duration-300 cursor-pointer"
@@ -129,6 +83,19 @@ export function ProjectsGallery() {
               </div>
             </Card>
           ))}
+        </div>
+
+        {/* View All Projects Button - Center Aligned */}
+        <div className="text-center">
+          <Button
+            asChild
+            size="lg"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 font-semibold"
+          >
+            <Link href="/portfolio">
+              View All Projects
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

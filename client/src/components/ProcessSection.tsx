@@ -48,56 +48,44 @@ export function ProcessSection() {
         </div>
 
         <div className="relative">
-          <div className="hidden md:block absolute top-[80px] left-[20%] right-[20%] h-0.5">
-            <svg
-              className="w-full h-full"
-              preserveAspectRatio="none"
-              viewBox="0 0 100 1"
-            >
-              <line
-                x1="0"
-                y1="0.5"
-                x2="50"
-                y2="0.5"
-                stroke="currentColor"
-                strokeWidth="0.5"
-                strokeDasharray="2,2"
-                className="text-border"
-              />
-              <line
-                x1="50"
-                y1="0.5"
-                x2="100"
-                y2="0.5"
-                stroke="currentColor"
-                strokeWidth="0.5"
-                strokeDasharray="2,2"
-                className="text-border"
-              />
-            </svg>
+          {/* Dotted line connecting the steps - Desktop only - Behind icons */}
+          <div className="hidden md:block absolute top-[94px] left-0 right-0 h-[2px] pointer-events-none z-0">
+            <div className="max-w-4xl mx-auto px-[12%] h-full">
+              <div className="w-full h-full border-t-2 border-dashed border-gray-400 dark:border-gray-600"></div>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 md:gap-12 relative">
+          <div className="grid md:grid-cols-3 gap-12 md:gap-8 relative z-10">
             {steps.map((step, index) => (
               <div
                 key={index}
                 className="flex flex-col items-center text-center relative"
                 data-testid={`process-step-${index}`}
               >
-                <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-2xl font-bold text-foreground">
+                {/* Step number */}
+                <div className="mb-6 text-3xl font-bold text-foreground relative z-20">
                   {step.number}
                 </div>
 
-                <div
-                  className={`w-20 h-20 rounded-full ${step.iconBg} flex items-center justify-center mb-6 relative z-10 bg-background border-4 border-background shadow-md`}
-                >
-                  <step.icon className={`h-10 w-10 ${step.iconColor}`} />
+                {/* Icon circle with solid background to cover line */}
+                <div className="relative mb-6">
+                  {/* Solid white background circle to block the line */}
+                  <div className="absolute inset-0 w-24 h-24 -left-2 -top-2 rounded-full bg-background z-10"></div>
+                  {/* Icon circle */}
+                  <div
+                    className={`w-20 h-20 rounded-full ${step.iconBg} flex items-center justify-center relative z-20 shadow-lg`}
+                  >
+                    <step.icon className={`h-10 w-10 ${step.iconColor}`} />
+                  </div>
                 </div>
 
-                <h3 className="text-xl font-semibold text-foreground mb-3">
+                {/* Title */}
+                <h3 className="text-xl font-semibold text-foreground mb-3 relative z-20">
                   {step.title}
                 </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                
+                {/* Description */}
+                <p className="text-sm text-muted-foreground leading-relaxed max-w-xs relative z-20">
                   {step.description}
                 </p>
               </div>

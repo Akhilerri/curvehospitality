@@ -30,6 +30,36 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Vendor chunks for better caching
+          'react-vendor': ['react', 'react-dom'],
+          'ui-vendor': [
+            '@radix-ui/react-dialog',
+            '@radix-ui/react-dropdown-menu',
+            '@radix-ui/react-navigation-menu',
+            '@radix-ui/react-select',
+            '@radix-ui/react-tabs',
+          ],
+          'form-vendor': [
+            'react-hook-form',
+            '@hookform/resolvers',
+            'zod',
+          ],
+          'query-vendor': ['@tanstack/react-query'],
+          'utils': ['clsx', 'tailwind-merge', 'class-variance-authority'],
+        },
+      },
+    },
+    // Enable source maps for production debugging (optional)
+    sourcemap: process.env.NODE_ENV === 'development',
+    // Optimize chunk size
+    chunkSizeWarningLimit: 1000,
+    // Enable minification
+    minify: 'esbuild',
+    // Target modern browsers for better optimization
+    target: ['es2020', 'edge88', 'firefox78', 'chrome87', 'safari14'],
   },
   server: {
     fs: {
