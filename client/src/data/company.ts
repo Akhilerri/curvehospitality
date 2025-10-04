@@ -1,8 +1,8 @@
 import { CompanyInfo } from '@shared/types/common';
 
 export const companyData: CompanyInfo = {
-  id: 'curve-hospitality',
-  name: 'Curve Hospitality',
+  id: 'karan-kothari-usa-llc',
+  name: 'Karan Kothari USA LLC',
   description: 'Distinguished hospitality procurement enterprise specializing in custom FF&E manufacturing, interior design, and quality hospitality furniture for hotels and restaurants.',
   foundedYear: 2010,
   mission: 'To deliver exceptional hospitality experiences through innovative design, superior craftsmanship, and unparalleled service excellence.',
@@ -15,12 +15,12 @@ export const companyData: CompanyInfo = {
   ],
   contactInfo: {
     phone: '+1 (555) 123-4567',
-    email: 'info@curvehospitality.com',
+    email: 'office@kkusallc.com',
     address: {
-      street: '123 Design District Boulevard',
-      city: 'Los Angeles',
-      state: 'CA',
-      zipCode: '90028',
+      street: '399 Hoes Ln',
+      city: 'Piscataway',
+      state: 'NJ',
+      zipCode: '08854',
       country: 'United States'
     },
     businessHours: {

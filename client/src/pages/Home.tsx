@@ -1,4 +1,4 @@
-import { ScrollTest } from "@/components/ScrollTest";
+
 import { Link } from "wouter";
 import { Hero } from "@/components/Hero";
 import { AboutSection } from "@/components/AboutSection";
@@ -71,35 +71,34 @@ export default function Home() {
 
   return (
     <>
-      <ScrollTest />
       <Hero />
       
       {/* Quick Navigation Section */}
-      <section className="py-16 bg-muted/50">
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
-          <div className="text-center mb-12">
+      <section className="section-spacing bg-muted/50">
+        <div className="section-container">
+          <div className="section-header">
             <h2 className="text-3xl font-bold mb-4">Explore Our Services</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Discover everything we offer, from our comprehensive services to our extensive product catalog
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
             {sectionCards.map((card) => {
               const Icon = card.icon;
               return (
-                <Card key={card.href} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <CardHeader className="pb-3">
+                <Card key={card.href} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 touch-manipulation">
+                  <CardHeader className="pb-3 p-4 sm:p-6">
                     <div className="flex items-center gap-3 mb-2">
-                      <Icon className={`h-6 w-6 ${card.color}`} />
-                      <CardTitle className="text-lg">{card.title}</CardTitle>
+                      <Icon className={`h-5 w-5 sm:h-6 sm:w-6 ${card.color}`} />
+                      <CardTitle className="text-base sm:text-lg">{card.title}</CardTitle>
                     </div>
-                    <CardDescription className="text-sm">
+                    <CardDescription className="text-xs sm:text-sm">
                       {card.description}
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="pt-0">
-                    <Button asChild variant="ghost" className="w-full justify-between group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                  <CardContent className="pt-0 p-4 sm:p-6">
+                    <Button asChild variant="ghost" className="w-full justify-between group-hover:bg-primary group-hover:text-primary-foreground transition-colors text-sm">
                       <Link href={card.href}>
                         Learn More
                         <ArrowRight className="h-4 w-4" />

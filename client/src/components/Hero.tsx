@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Mail, ArrowUpRight } from "lucide-react";
-import heroImage from "@assets/generated_images/Luxury_hotel_interior_hero_c7c59af4.png";
+// Try local image first, fallback to stock image
+const heroImage = "/assets/generated_images/Luxury_hotel_interior_hero_c7c59af4.png";
+const heroImageFallback = "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80";
 
 export function Hero() {
   return (
@@ -83,6 +85,10 @@ export function Hero() {
                 src={heroImage}
                 alt="Luxury hotel interior design"
                 className="w-full h-full object-cover"
+                loading="eager"
+                onError={(e) => {
+                  e.currentTarget.src = heroImageFallback;
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>

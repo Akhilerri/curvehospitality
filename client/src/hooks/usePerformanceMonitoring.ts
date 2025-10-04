@@ -62,13 +62,12 @@ export function usePerformanceMonitoring(config: PerformanceConfig = {}) {
     const measureWebVitals = async () => {
       try {
         // Dynamic import to avoid loading the library if not needed
-        const { getCLS, getFID, getFCP, getLCP, getTTFB } = await import('web-vitals');
+        const { onCLS, onFCP, onLCP, onTTFB } = await import('web-vitals/attribution');
 
-        getCLS(reportMetric);
-        getFID(reportMetric);
-        getFCP(reportMetric);
-        getLCP(reportMetric);
-        getTTFB(reportMetric);
+        onCLS(reportMetric);
+        onFCP(reportMetric);
+        onLCP(reportMetric);
+        onTTFB(reportMetric);
       } catch (error) {
         console.warn('Web Vitals library not available:', error);
       }
@@ -86,8 +85,8 @@ export function usePerformanceMonitoring(config: PerformanceConfig = {}) {
             ttfb: navigation.responseStart - navigation.requestStart,
             download: navigation.responseEnd - navigation.responseStart,
             domParse: navigation.domContentLoadedEventEnd - navigation.domContentLoadedEventStart,
-            domReady: navigation.domContentLoadedEventEnd - navigation.navigationStart,
-            loadComplete: navigation.loadEventEnd - navigation.navigationStart,
+            domReady: navigation.domContentLoadedEventEnd - (navigation.activationStart || 0),
+            loadComplete: navigation.loadEventEnd - (navigation.activationStart || 0),
           };
 
           Object.entries(metrics).forEach(([name, value]) => {

@@ -27,7 +27,7 @@ const serviceDescriptions = {
 
 export function ServiceOverviewGrid({ services, onServiceClick, className }: ServiceOverviewGridProps) {
   return (
-    <div className={cn("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6", className)}>
+    <div className={cn("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4 md:px-6 lg:px-8", className)}>
       {services.map((service) => {
         const IconComponent = serviceIcons[service.type];
         const defaultDescription = serviceDescriptions[service.type];

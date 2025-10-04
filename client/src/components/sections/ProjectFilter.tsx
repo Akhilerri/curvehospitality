@@ -26,8 +26,8 @@ const FilterButton: React.FC<{
       onClick={onClick}
       className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
         isActive
-          ? 'bg-blue-600 text-white'
-          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+          ? 'bg-primary text-primary-foreground'
+          : 'bg-muted text-muted-foreground hover:bg-muted/80'
       }`}
     >
       {label}
@@ -38,7 +38,7 @@ const FilterButton: React.FC<{
           e.stopPropagation();
           onClear();
         }}
-        className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"
+        className="absolute -top-1 -right-1 w-5 h-5 bg-destructive text-destructive-foreground rounded-full flex items-center justify-center hover:bg-destructive/80 transition-colors"
       >
         <X size={12} />
       </button>
@@ -72,17 +72,17 @@ export const ProjectFilter: React.FC<ProjectFilterProps> = ({
   return (
     <div className="mb-6">
       {/* Compact Header Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border border-gray-200 rounded-lg p-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-card border border-border rounded-lg p-4">
         {/* Left side - Filter button and active filters */}
         <div className="flex items-center gap-3">
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-medium transition-colors"
+            className="flex items-center gap-2 px-4 py-2 bg-muted hover:bg-muted/80 rounded-lg text-sm font-medium transition-colors"
           >
-            <Filter size={16} className="text-gray-600" />
+            <Filter size={16} className="text-muted-foreground" />
             <span>Filters</span>
             {activeFilterCount > 0 && (
-              <span className="px-2 py-1 bg-blue-600 text-white text-xs font-medium rounded-full">
+              <span className="px-2 py-1 bg-primary text-primary-foreground text-xs font-medium rounded-full">
                 {activeFilterCount}
               </span>
             )}
@@ -93,34 +93,34 @@ export const ProjectFilter: React.FC<ProjectFilterProps> = ({
           {!isExpanded && (
             <div className="flex flex-wrap gap-2">
               {filters.isFeatured && (
-                <div className="flex items-center gap-1 px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">
+                <div className="flex items-center gap-1 px-2 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200 text-xs rounded-full">
                   <Star size={12} className="fill-current" />
                   <span>Featured</span>
-                  <button onClick={() => onClearFilter('isFeatured')} className="hover:text-yellow-900">
+                  <button onClick={() => onClearFilter('isFeatured')} className="hover:text-yellow-900 dark:hover:text-yellow-100">
                     <X size={12} />
                   </button>
                 </div>
               )}
               {filters.segment && (
-                <div className="flex items-center gap-1 px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">
+                <div className="flex items-center gap-1 px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 text-xs rounded-full">
                   <span>{segmentLabels[filters.segment]}</span>
-                  <button onClick={() => onClearFilter('segment')} className="hover:text-blue-900">
+                  <button onClick={() => onClearFilter('segment')} className="hover:text-blue-900 dark:hover:text-blue-100">
                     <X size={12} />
                   </button>
                 </div>
               )}
               {filters.brand && (
-                <div className="flex items-center gap-1 px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">
+                <div className="flex items-center gap-1 px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 text-xs rounded-full">
                   <span>{filters.brand}</span>
-                  <button onClick={() => onClearFilter('brand')} className="hover:text-green-900">
+                  <button onClick={() => onClearFilter('brand')} className="hover:text-green-900 dark:hover:text-green-100">
                     <X size={12} />
                   </button>
                 </div>
               )}
               {filters.location && (
-                <div className="flex items-center gap-1 px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">
+                <div className="flex items-center gap-1 px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 text-xs rounded-full">
                   <span>{filters.location}</span>
-                  <button onClick={() => onClearFilter('location')} className="hover:text-purple-900">
+                  <button onClick={() => onClearFilter('location')} className="hover:text-purple-900 dark:hover:text-purple-100">
                     <X size={12} />
                   </button>
                 </div>
@@ -133,18 +133,18 @@ export const ProjectFilter: React.FC<ProjectFilterProps> = ({
         <div className="flex items-center gap-3">
           {/* Compact search */}
           <div className="relative">
-            <Search size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+            <Search size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" />
             <input
               type="text"
               placeholder="Search..."
               value={filters.searchQuery || ''}
               onChange={(e) => onFilterChange('searchQuery', e.target.value)}
-              className="w-48 sm:w-64 pl-9 pr-8 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-48 sm:w-64 pl-9 pr-8 py-2 text-sm border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background"
             />
             {filters.searchQuery && (
               <button
                 onClick={() => onClearFilter('searchQuery')}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground"
               >
                 <X size={14} />
               </button>
@@ -152,7 +152,7 @@ export const ProjectFilter: React.FC<ProjectFilterProps> = ({
           </div>
 
           {/* Results count */}
-          <div className="text-sm text-gray-600 whitespace-nowrap">
+          <div className="text-sm text-muted-foreground whitespace-nowrap">
             <span className="font-medium">{filteredCount}</span> of {totalProjects}
           </div>
 
@@ -160,7 +160,7 @@ export const ProjectFilter: React.FC<ProjectFilterProps> = ({
           {hasActiveFilters && (
             <button
               onClick={onClearFilters}
-              className="text-sm text-red-600 hover:text-red-700 font-medium whitespace-nowrap"
+              className="text-sm text-destructive hover:text-destructive/80 font-medium whitespace-nowrap"
             >
               Clear All
             </button>
@@ -170,15 +170,15 @@ export const ProjectFilter: React.FC<ProjectFilterProps> = ({
 
       {/* Expanded Filter Panel */}
       {isExpanded && (
-        <div className="mt-2 bg-white border border-gray-200 rounded-lg p-4 space-y-4">
+        <div className="mt-2 bg-card border border-border rounded-lg p-4 space-y-4">
           {/* Featured Toggle */}
           <div>
             <button
               onClick={() => onFilterChange('isFeatured', filters.isFeatured ? undefined : true)}
               className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                 filters.isFeatured
-                  ? 'bg-yellow-100 text-yellow-800 border border-yellow-300'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200 border border-yellow-300 dark:border-yellow-700'
+                  : 'bg-muted text-muted-foreground hover:bg-muted/80'
               }`}
             >
               <Star size={16} className={filters.isFeatured ? 'fill-current' : ''} />
@@ -191,7 +191,7 @@ export const ProjectFilter: React.FC<ProjectFilterProps> = ({
             {/* Segments */}
             {filterOptions.segments.length > 0 && (
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-foreground mb-2">
                   Project Type
                 </label>
                 <div className="flex flex-wrap gap-2">
@@ -211,7 +211,7 @@ export const ProjectFilter: React.FC<ProjectFilterProps> = ({
             {/* Brands */}
             {filterOptions.brands.length > 0 && (
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-foreground mb-2">
                   Brand
                 </label>
                 <div className="flex flex-wrap gap-2">
@@ -231,7 +231,7 @@ export const ProjectFilter: React.FC<ProjectFilterProps> = ({
             {/* Locations */}
             {filterOptions.locations.length > 0 && (
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-foreground mb-2">
                   Location
                 </label>
                 <div className="flex flex-wrap gap-2">

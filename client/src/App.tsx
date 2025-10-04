@@ -11,7 +11,6 @@ import { companyData } from "@/data/company";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Services from "@/pages/Services";
-import Products from "@/pages/Products";
 import Portfolio from "@/pages/Portfolio";
 import Process from "@/pages/Process";
 import Resources from "@/pages/Resources";
@@ -31,7 +30,6 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/services" component={Services} />
       <Route path="/services/:serviceId" component={Services} />
-      <Route path="/products" component={Products} />
       <Route path="/portfolio" component={Portfolio} />
       <Route path="/process" component={Process} />
       <Route path="/resources" component={Resources} />

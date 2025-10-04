@@ -47,11 +47,11 @@ export default function Process() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="page-container bg-background">
       {/* Hero Section */}
-      <div className="bg-gradient-to-b from-primary/5 to-background py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-4xl mx-auto">
+      <section className="bg-gradient-to-b from-primary/5 to-background section-spacing">
+        <div className="section-container">
+          <div className="section-header">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Our Process
             </h1>
@@ -61,20 +61,22 @@ export default function Process() {
             </p>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Process Section */}
-      <div className="container mx-auto px-4 py-16 md:py-24">
-        <ProcessSection 
-          workflow={workflow}
-          currentPhase={currentPhase}
-          completedPhases={completedPhases}
-        />
-      </div>
+      <section className="section-spacing">
+        <div className="section-container">
+          <ProcessSection 
+            workflow={workflow}
+            currentPhase={currentPhase}
+            completedPhases={completedPhases}
+          />
+        </div>
+      </section>
 
       {/* FAQ Section */}
-      <div className="bg-muted/30 py-16 md:py-24">
-        <div className="container mx-auto px-4">
+      <section className="bg-muted/30 section-spacing">
+        <div className="section-container">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
               Frequently Asked Questions
@@ -110,7 +112,7 @@ export default function Process() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

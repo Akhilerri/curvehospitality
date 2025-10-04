@@ -20,6 +20,10 @@ export default function Products() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const category = mockProductCategories
+    .flatMap(c => (c.children ? [c, ...c.children] : [c]))
+    .find(c => c.id === selectedProduct?.categoryId);
+
   // SEO for products page
   usePageSEO(
     selectedProduct ? selectedProduct.name : 'Products',
@@ -28,13 +32,13 @@ export default function Products() {
       : 'Explore our extensive catalog of hospitality furniture, fixtures, and equipment including seating, lighting, case goods, and custom solutions.',
     {
       keywords: selectedProduct 
-        ? [selectedProduct.name, selectedProduct.category?.name, 'hospitality furniture', 'custom furniture'].filter(Boolean)
+        ? [selectedProduct.name, category?.name, 'hospitality furniture', 'custom furniture'].filter(Boolean) as string[]
         : ['hospitality products', 'hotel furniture', 'restaurant furniture', 'custom furniture', 'FF&E catalog'],
       breadcrumbs: selectedProduct 
         ? [
             { name: 'Home', url: '/' },
             { name: 'Products', url: '/products' },
-            { name: selectedProduct.category?.name || 'Category', url: `/products?category=${selectedProduct.categoryId}` },
+            { name: category?.name || 'Category', url: `/products?category=${selectedProduct.categoryId}` },
             { name: selectedProduct.name, url: `/products/${selectedProduct.id}` }
           ]
         : [

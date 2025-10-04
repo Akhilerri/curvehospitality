@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Service } from '@shared/types/services';
-import { BusinessLayout } from "@/components/layout/BusinessLayout";
 import { ServicesSection } from '@/components/sections/ServicesSection';
 import { ServiceDetailPage } from '@/components/sections/ServiceDetailPage';
 import { Button } from '@/components/ui/button';
@@ -313,7 +312,7 @@ export default function Services() {
   usePageSEO(
     selectedService ? selectedService.title : 'Services',
     selectedService 
-      ? selectedService.description
+      ? selectedService.description || ''
       : 'Comprehensive hospitality services including interior design, FF&E manufacturing, procurement, and project management for hotels and restaurants.',
     {
       keywords: selectedService 
@@ -352,8 +351,8 @@ export default function Services() {
 
   if (selectedService) {
     return (
-      <BusinessLayout>
-        <div className="container mx-auto px-6 py-8">
+      <div className="page-container">
+        <div className="section-container page-content">
           <Button 
             variant="outline" 
             onClick={handleBackClick}
@@ -369,18 +368,20 @@ export default function Services() {
             onQuoteClick={handleQuoteClick}
           />
         </div>
-      </BusinessLayout>
+      </div>
     );
   }
 
   return (
-    <BusinessLayout>
-      <div className="container mx-auto px-6 py-16">
-        <ServicesSection
-          services={mockServices}
-          onServiceClick={handleServiceClick}
-        />
-      </div>
-    </BusinessLayout>
+    <div className="page-container">
+      <section className="pt-32 pb-16 md:pt-40 md:pb-20 lg:pt-48 lg:pb-24">
+        <div className="section-container">
+          <ServicesSection
+            services={mockServices}
+            onServiceClick={handleServiceClick}
+          />
+        </div>
+      </section>
+    </div>
   );
 }

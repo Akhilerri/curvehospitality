@@ -38,24 +38,25 @@ export const Portfolio: React.FC = () => {
   return (
     <>
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="page-container bg-background">
         {/* Hero Section */}
-        <div className="bg-white border-b border-gray-200">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div className="text-center">
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">
+        <section className="bg-card border-b border-border">
+          <div className="section-container page-hero">
+            <div className="section-header">
+              <h1 className="text-4xl font-bold text-foreground mb-4">
                 Our Portfolio
               </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                 Discover our diverse range of interior design and manufacturing projects, 
                 from luxury hotels to corporate headquarters, each tailored to our clients' unique vision.
               </p>
             </div>
           </div>
-        </div>
+        </section>
 
         {/* Main Content */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <section className="section-spacing">
+          <div className="section-container">
           {/* Filter Section - Moved to top */}
           <div className="mb-8">
             <ProjectFilter
@@ -74,10 +75,10 @@ export const Portfolio: React.FC = () => {
           {/* Results Section */}
           <div className="mb-6">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-gray-900">
+              <h2 className="text-xl font-semibold text-foreground">
                 All Projects
               </h2>
-              <div className="text-sm text-gray-600">
+              <div className="text-sm text-muted-foreground">
                 {projects.length} {projects.length === 1 ? 'project' : 'projects'}
               </div>
             </div>
@@ -92,21 +93,22 @@ export const Portfolio: React.FC = () => {
           {/* Empty State */}
           {projects.length === 0 && (
             <div className="text-center py-12">
-              <div className="text-gray-400 text-lg mb-2">No projects found</div>
-              <p className="text-gray-500 text-sm mb-4">
+              <div className="text-muted-foreground text-lg mb-2">No projects found</div>
+              <p className="text-muted-foreground text-sm mb-4">
                 Try adjusting your filters to see more projects.
               </p>
               {hasActiveFilters && (
                 <button
                   onClick={clearFilters}
-                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
                 >
                   Clear All Filters
                 </button>
               )}
             </div>
           )}
-        </div>
+          </div>
+        </section>
 
         {/* Case Study Modal */}
         <CaseStudyModal

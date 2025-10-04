@@ -7,10 +7,10 @@ const Resources: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'blog' | 'guides'>('blog');
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="page-container bg-background">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-teal-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-teal-900 text-white section-spacing">
+        <div className="section-container text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             Resources & Insights
           </h1>
@@ -46,8 +46,8 @@ const Resources: React.FC = () => {
       </section>
 
       {/* Navigation Tabs */}
-      <section className="bg-white border-b border-gray-200 sticky top-0 z-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-card border-b border-border sticky top-0 z-20">
+        <div className="section-container">
           <nav className="flex space-x-8">
             <button
               onClick={() => setActiveTab('blog')}

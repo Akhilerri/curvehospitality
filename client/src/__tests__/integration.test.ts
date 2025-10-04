@@ -66,12 +66,9 @@ describe('Business Website Integration Tests', () => {
     });
 
     it('should have navigation integration', () => {
-      const navContent = readFileContent('client/src/components/EnhancedNavigation.tsx');
-      expect(navContent).toBeTruthy();
-
-      const homeContent = readFileContent('client/src/pages/Home.tsx');
-      expect(homeContent).toBeTruthy();
-      expect(homeContent).toContain('EnhancedNavigation');
+      const appContent = readFileContent('client/src/App.tsx');
+      expect(appContent).toBeTruthy();
+      expect(appContent).toContain('EnhancedNavigation');
     });
 
     it('should have section components', () => {
@@ -178,7 +175,6 @@ describe('Business Website Integration Tests', () => {
     it('should have home page integration', () => {
       const homeContent = readFileContent('client/src/pages/Home.tsx');
       expect(homeContent).toBeTruthy();
-      expect(homeContent).toContain('EnhancedNavigation');
       expect(homeContent).toContain('sectionCards');
     });
   });

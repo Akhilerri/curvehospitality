@@ -2,9 +2,15 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "wouter";
-import guestRoomImage from "@assets/generated_images/Modern_hotel_guest_room_6281e19b.png";
-import lobbyImage from "@assets/generated_images/Luxury_hotel_lobby_interior_ae77a8c3.png";
-import restaurantImage from "@assets/generated_images/Hotel_restaurant_interior_design_c2131a5e.png";
+// Try local images first, fallback to stock images
+const guestRoomImage = "/assets/generated_images/Modern_hotel_guest_room_6281e19b.png";
+const lobbyImage = "/assets/generated_images/Luxury_hotel_lobby_interior_ae77a8c3.png";
+const restaurantImage = "/assets/generated_images/Hotel_restaurant_interior_design_c2131a5e.png";
+
+// Fallback images
+const guestRoomImageFallback = "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80";
+const lobbyImageFallback = "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80";
+const restaurantImageFallback = "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80";
 
 export function ProjectsGallery() {
   // UPDATED: Only show top 3 featured projects - NO FILTERS - FORCE REFRESH
@@ -16,6 +22,7 @@ export function ProjectsGallery() {
       title: "Modern Guest Room Collection",
       category: "Guest Rooms",
       image: guestRoomImage,
+      fallback: guestRoomImageFallback,
       description: "Contemporary furniture design with elegant neutral tones",
     },
     {
@@ -23,6 +30,7 @@ export function ProjectsGallery() {
       title: "Luxury Hotel Lobby",
       category: "Lobbies",
       image: lobbyImage,
+      fallback: lobbyImageFallback,
       description: "Sophisticated seating and custom FF&E elements",
     },
     {
@@ -30,6 +38,7 @@ export function ProjectsGallery() {
       title: "Fine Dining Restaurant",
       category: "Restaurants",
       image: restaurantImage,
+      fallback: restaurantImageFallback,
       description: "Elegant dining furniture and ambient lighting",
     },
   ];
@@ -68,6 +77,10 @@ export function ProjectsGallery() {
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.src = project.fallback;
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                   <div>

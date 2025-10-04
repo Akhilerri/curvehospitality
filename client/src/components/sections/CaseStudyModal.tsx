@@ -34,7 +34,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   return (
     <div className="relative">
       {/* Main Image */}
-      <div className="relative aspect-video bg-gray-100 rounded-lg overflow-hidden">
+      <div className="relative aspect-video bg-muted rounded-lg overflow-hidden">
         <img
           src={currentImage.url}
           alt={currentImage.alt}
@@ -44,10 +44,10 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
         {/* Image Type Badge */}
         <div className="absolute top-4 left-4">
           <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-            currentImage.type === 'before' ? 'bg-red-100 text-red-800' :
-            currentImage.type === 'after' ? 'bg-green-100 text-green-800' :
-            currentImage.type === 'process' ? 'bg-blue-100 text-blue-800' :
-            'bg-purple-100 text-purple-800'
+            currentImage.type === 'before' ? 'bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200' :
+            currentImage.type === 'after' ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200' :
+            currentImage.type === 'process' ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200' :
+            'bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200'
           }`}>
             {currentImage.type.charAt(0).toUpperCase() + currentImage.type.slice(1)}
           </span>
@@ -81,7 +81,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
 
       {/* Image Description */}
       {currentImage.description && (
-        <p className="mt-2 text-sm text-gray-600 text-center">
+        <p className="mt-2 text-sm text-muted-foreground text-center">
           {currentImage.room && <span className="font-medium">{currentImage.room}: </span>}
           {currentImage.description}
         </p>
@@ -95,7 +95,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
               key={index}
               onClick={() => onIndexChange(index)}
               className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-lg overflow-hidden border-2 transition-colors touch-manipulation ${
-                index === currentIndex ? 'border-blue-500' : 'border-gray-200 hover:border-gray-300'
+                index === currentIndex ? 'border-primary' : 'border-border hover:border-muted-foreground'
               }`}
             >
               <img
@@ -155,18 +155,18 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
       />
 
       {/* Modal Content */}
-      <div className="relative bg-white rounded-lg sm:rounded-xl shadow-2xl max-w-6xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto">
+      <div className="relative bg-card rounded-lg sm:rounded-xl shadow-2xl max-w-6xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto border border-border">
         {/* Header */}
-        <div className="sticky top-0 bg-white border-b border-gray-200 px-4 sm:px-6 py-3 sm:py-4 flex items-start justify-between">
+        <div className="sticky top-0 bg-card border-b border-border px-4 sm:px-6 py-3 sm:py-4 flex items-start justify-between">
           <div className="flex-1 min-w-0 pr-4">
-            <h2 className="text-lg sm:text-2xl font-bold text-gray-900 leading-tight">{project.title}</h2>
+            <h2 className="text-lg sm:text-2xl font-bold text-card-foreground leading-tight">{project.title}</h2>
             {project.client && (
-              <p className="text-sm sm:text-base text-gray-600 mt-1">{project.client}</p>
+              <p className="text-sm sm:text-base text-muted-foreground mt-1">{project.client}</p>
             )}
           </div>
           <button
             onClick={onClose}
-            className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors flex-shrink-0"
+            className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-muted transition-colors flex-shrink-0"
           >
             <X size={20} />
           </button>
@@ -174,7 +174,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
 
         <div className="p-4 sm:p-6">
           {/* Project Meta Information */}
-          <div className="flex flex-wrap gap-3 sm:gap-4 mb-4 sm:mb-6 text-xs sm:text-sm text-gray-600">
+          <div className="flex flex-wrap gap-3 sm:gap-4 mb-4 sm:mb-6 text-xs sm:text-sm text-muted-foreground">
             {project.location && (
               <div className="flex items-center gap-1">
                 <MapPin size={14} className="sm:w-4 sm:h-4" />
@@ -212,8 +212,8 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                   onIndexChange={setCurrentImageIndex}
                 />
               ) : (
-                <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
-                  <span className="text-gray-400">No images available</span>
+                <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
+                  <span className="text-muted-foreground">No images available</span>
                 </div>
               )}
             </div>
@@ -223,20 +223,20 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
               {/* Description */}
               {project.description && (
                 <div>
-                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">Project Overview</h3>
-                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{project.description}</p>
+                  <h3 className="text-base sm:text-lg font-semibold text-card-foreground mb-2">Project Overview</h3>
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{project.description}</p>
                 </div>
               )}
 
               {/* Challenges */}
               {project.challenges && project.challenges.length > 0 && (
                 <div>
-                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">Challenges</h3>
+                  <h3 className="text-base sm:text-lg font-semibold text-card-foreground mb-2">Challenges</h3>
                   <ul className="space-y-2">
                     {project.challenges.map((challenge, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <span className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0" />
-                        <span className="text-sm sm:text-base text-gray-700">{challenge}</span>
+                        <span className="text-sm sm:text-base text-muted-foreground">{challenge}</span>
                       </li>
                     ))}
                   </ul>
@@ -246,12 +246,12 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
               {/* Solutions */}
               {project.solutions && project.solutions.length > 0 && (
                 <div>
-                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">Solutions</h3>
+                  <h3 className="text-base sm:text-lg font-semibold text-card-foreground mb-2">Solutions</h3>
                   <ul className="space-y-2">
                     {project.solutions.map((solution, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
-                        <span className="text-sm sm:text-base text-gray-700">{solution}</span>
+                        <span className="text-sm sm:text-base text-muted-foreground">{solution}</span>
                       </li>
                     ))}
                   </ul>
@@ -261,12 +261,12 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
               {/* Results */}
               {project.results && project.results.length > 0 && (
                 <div>
-                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">Results</h3>
+                  <h3 className="text-base sm:text-lg font-semibold text-card-foreground mb-2">Results</h3>
                   <ul className="space-y-2">
                     {project.results.map((result, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <span className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0" />
-                        <span className="text-sm sm:text-base text-gray-700">{result}</span>
+                        <span className="text-sm sm:text-base text-muted-foreground">{result}</span>
                       </li>
                     ))}
                   </ul>
@@ -276,12 +276,12 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
               {/* Tags */}
               {project.tags && project.tags.length > 0 && (
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Tags</h3>
+                  <h3 className="text-lg font-semibold text-card-foreground mb-2">Tags</h3>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag, index) => (
                       <span
                         key={index}
-                        className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                        className="px-3 py-1 bg-muted text-muted-foreground rounded-full text-sm"
                       >
                         {tag}
                       </span>
@@ -294,18 +294,18 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
 
           {/* Testimonial */}
           {project.testimonial && (
-            <div className="mt-8 p-6 bg-gray-50 rounded-lg">
+            <div className="mt-8 p-6 bg-muted rounded-lg">
               <div className="flex items-start gap-4">
-                <Quote size={24} className="text-gray-400 flex-shrink-0 mt-1" />
+                <Quote size={24} className="text-muted-foreground flex-shrink-0 mt-1" />
                 <div>
-                  <blockquote className="text-lg text-gray-900 mb-4 italic">
+                  <blockquote className="text-lg text-card-foreground mb-4 italic">
                     "{project.testimonial.quote}"
                   </blockquote>
                   <div className="flex items-center gap-4">
                     <div>
-                      <p className="font-semibold text-gray-900">{project.testimonial.clientName}</p>
+                      <p className="font-semibold text-card-foreground">{project.testimonial.clientName}</p>
                       {project.testimonial.clientTitle && (
-                        <p className="text-sm text-gray-600">
+                        <p className="text-sm text-muted-foreground">
                           {project.testimonial.clientTitle}
                           {project.testimonial.clientCompany && `, ${project.testimonial.clientCompany}`}
                         </p>

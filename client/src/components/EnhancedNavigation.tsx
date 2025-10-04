@@ -25,12 +25,20 @@ import { cn } from "@/lib/utils";
 // Business website navigation structure
 const businessNavigation: NavigationItem[] = [
   {
-    label: "Our Work",
+    label: "Portfolio",
     href: "/portfolio",
+  },
+  {
+    label: "Services",
+    href: "/services",
   },
   {
     label: "About Us",
     href: "/about",
+  },
+  {
+    label: "Process",
+    href: "/process",
   },
   {
     label: "Resources",
@@ -38,8 +46,11 @@ const businessNavigation: NavigationItem[] = [
     children: [
       { label: "Blog & Insights", href: "/blog" },
       { label: "Downloadable Guides", href: "/resources" },
-      { label: "Our Process", href: "/process" },
     ],
+  },
+  {
+    label: "Contact",
+    href: "/contact",
   },
 ];
 
@@ -204,7 +215,7 @@ function MobileNavigation({ items, isActiveItem, isOpen, onOpenChange }: MobileN
                   className="text-2xl font-bold text-blue-600 dark:text-blue-400"
                   onClick={handleClose}
                 >
-                  CURVE
+                  Karan Kothari USA LLC
                 </Link>
                 <Button
                   variant="ghost"
@@ -384,7 +395,7 @@ export function EnhancedNavigation() {
               className="text-2xl font-bold text-primary hover-elevate px-2 py-1 rounded-md"
               data-testid="link-home"
             >
-              Curve
+              Karan Kothari USA LLC
             </Link>
           </div>
 

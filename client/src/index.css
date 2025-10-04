@@ -1,3 +1,6 @@
+/* Import consistent spacing system */
+@import './styles/spacing.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -20,7 +20,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick, style }) =>
 
   return (
     <div
-      className="relative bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-[1.02] touch-manipulation"
+      className="relative bg-card rounded-lg shadow-md overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-[1.02] touch-manipulation border border-border"
       style={style}
       onClick={() => onClick(project)}
       onMouseEnter={() => setIsHovered(true)}
@@ -37,8 +37,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick, style }) =>
             decoding="async"
           />
         ) : (
-          <div className="w-full h-48 sm:h-56 md:h-64 lg:h-48 xl:h-56 bg-gray-200 flex items-center justify-center">
-            <span className="text-gray-400 text-xs sm:text-sm">No Image Available</span>
+          <div className="w-full h-48 sm:h-56 md:h-64 lg:h-48 xl:h-56 bg-muted flex items-center justify-center">
+            <span className="text-muted-foreground text-xs sm:text-sm">No Image Available</span>
           </div>
         )}
         
@@ -83,26 +83,26 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick, style }) =>
 
       {/* Card content (always visible) */}
       <div className="p-3 sm:p-4">
-        <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-1 line-clamp-1">
+        <h3 className="text-base sm:text-lg font-semibold text-card-foreground mb-1 line-clamp-1">
           {project.title}
         </h3>
         {project.client && (
-          <p className="text-xs sm:text-sm text-gray-600 mb-2">{project.client}</p>
+          <p className="text-xs sm:text-sm text-muted-foreground mb-2">{project.client}</p>
         )}
         <div className="flex flex-wrap gap-1 mb-2">
           {project.segment && (
-            <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded-full text-xs">
+            <span className="px-2 py-1 bg-muted text-muted-foreground rounded-full text-xs">
               {project.segment}
             </span>
           )}
           {project.location && (
-            <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded-full text-xs">
+            <span className="px-2 py-1 bg-muted text-muted-foreground rounded-full text-xs">
               {project.location}
             </span>
           )}
         </div>
         {project.completedAt && (
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-muted-foreground">
             <span className="hidden sm:inline">Completed: </span>
             {new Date(project.completedAt).toLocaleDateString()}
           </p>
@@ -154,8 +154,8 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
   if (projects.length === 0) {
     return (
       <div className={`text-center py-12 ${className}`}>
-        <div className="text-gray-400 text-lg mb-2">No projects found</div>
-        <p className="text-gray-500 text-sm">
+        <div className="text-muted-foreground text-lg mb-2">No projects found</div>
+        <p className="text-muted-foreground text-sm">
           Try adjusting your filters to see more projects.
         </p>
       </div>

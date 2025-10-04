@@ -39,8 +39,8 @@ export const mockProducts: Product[] = [
       quantity: 5,
       leadTime: '2-3 weeks',
     },
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
   {
     id: 'desk-modern-1',
@@ -78,8 +78,8 @@ export const mockProducts: Product[] = [
       status: 'in_stock',
       quantity: 12,
     },
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
 
   // Seating - Office Chairs
@@ -115,8 +115,8 @@ export const mockProducts: Product[] = [
       status: 'in_stock',
       quantity: 8,
     },
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
 
   // Lighting - Ceiling Fixtures
@@ -150,8 +150,8 @@ export const mockProducts: Product[] = [
       quantity: 3,
       leadTime: '4-6 weeks',
     },
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
 
   // Soft Goods - Rugs
@@ -189,8 +189,8 @@ export const mockProducts: Product[] = [
       status: 'in_stock',
       quantity: 1,
     },
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
 
   // Stone Countertops - Granite
@@ -223,8 +223,8 @@ export const mockProducts: Product[] = [
       status: 'in_stock',
       leadTime: '2-3 weeks for fabrication',
     },
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
 
   // Bathroom Fixtures - Vanities
@@ -263,8 +263,8 @@ export const mockProducts: Product[] = [
       quantity: 4,
       leadTime: '3-4 weeks',
     },
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
 
   // Flooring - Hardwood
@@ -302,8 +302,8 @@ export const mockProducts: Product[] = [
       status: 'in_stock',
       leadTime: '1-2 weeks',
     },
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
 
   // Additional products for pagination testing
@@ -330,8 +330,8 @@ export const mockProducts: Product[] = [
       status: 'in_stock',
       leadTime: '4-6 weeks',
     },
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
   {
     id: 'lamp-table-1',
@@ -356,8 +356,8 @@ export const mockProducts: Product[] = [
       status: 'in_stock',
       quantity: 15,
     },
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
 ];
 

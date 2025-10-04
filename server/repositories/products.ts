@@ -1,6 +1,7 @@
 import { eq, and, ilike, inArray } from "drizzle-orm";
 import { products, productCategories, type Product, type InsertProduct, type ProductCategory } from "@shared/schema";
 import { BaseRepository } from "./base";
+import crypto from "crypto";
 
 export interface ProductFilter {
   companyId?: string;
@@ -28,32 +29,24 @@ export class ProductRepository extends BaseRepository {
 
   async findByCompany(companyId: string, filters?: ProductFilter): Promise<Product[]> {
     try {
-      let query = this.db
-        .select()
-        .from(products)
-        .where(eq(products.companyId, companyId));
+      const conditions = [eq(products.companyId, companyId)];
 
-      // Apply filters
       if (filters?.categoryId) {
-        query = query.where(and(
-          eq(products.companyId, companyId),
-          eq(products.categoryId, filters.categoryId)
-        ));
+        conditions.push(eq(products.categoryId, filters.categoryId));
       }
 
       if (filters?.search) {
-        query = query.where(and(
-          eq(products.companyId, companyId),
-          ilike(products.name, `%${filters.search}%`)
-        ));
+        conditions.push(ilike(products.name, `%${filters.search}%`));
       }
 
       if (filters?.isFeatured !== undefined) {
-        query = query.where(and(
-          eq(products.companyId, companyId),
-          eq(products.isFeatured, filters.isFeatured)
-        ));
+        conditions.push(eq(products.isFeatured, filters.isFeatured));
       }
+
+      const query = this.db
+        .select()
+        .from(products)
+        .where(and(...conditions));
 
       return await query;
     } catch (error) {

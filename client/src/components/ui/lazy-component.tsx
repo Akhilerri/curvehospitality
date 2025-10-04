@@ -24,7 +24,7 @@ export function createLazyComponent<T extends ComponentType<any>>(
 
     return (
       <Suspense fallback={customFallback || fallback || defaultFallback}>
-        <LazyComponent {...componentProps} />
+        <LazyComponent {...(componentProps as any)} />
       </Suspense>
     );
   };

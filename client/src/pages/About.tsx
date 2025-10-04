@@ -60,10 +60,10 @@ function AnimatedCounter({ end, suffix = "", duration = 2000 }: { end: number; s
 
 export default function About() {
   usePageSEO(
-    'About Us - Curve Hospitality',
-    'Learn about Curve Hospitality, a distinguished hospitality procurement enterprise renowned for exceptional standards in FF&E manufacturing and interior design.',
+    'About Us - Karan Kothari USA LLC',
+    'Learn about Karan Kothari USA LLC, a distinguished hospitality procurement enterprise renowned for exceptional standards in FF&E manufacturing and interior design.',
     {
-      keywords: ['curve hospitality', 'hospitality furniture company', 'FF&E procurement', 'interior design', 'hospitality manufacturing'],
+      keywords: ['karan kothari usa llc', 'hospitality furniture company', 'FF&E procurement', 'interior design', 'hospitality manufacturing'],
       breadcrumbs: [
         { name: 'Home', url: '/' },
         { name: 'About Us', url: '/about' }
@@ -111,17 +111,17 @@ export default function About() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="page-container bg-background">
       {/* Hero Section */}
-      <section className="pt-16 pb-8 md:pt-20 md:pb-12 bg-gradient-to-b from-muted/50 to-background">
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
+      <section className="section-spacing bg-gradient-to-b from-muted/50 to-background">
+        <div className="section-container">
           <div className="text-center space-y-6">
             <Badge className="inline-flex items-center gap-2 bg-primary/10 text-primary border-primary/20">
               <Building2 className="w-4 h-4" />
               HOSPITALITY FURNITURE COMPANY
             </Badge>
             <h1 className="text-4xl md:text-6xl font-serif font-light text-foreground leading-tight">
-              About Curve Hospitality
+              About Karan Kothari USA LLC
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               A distinguished hospitality procurement enterprise renowned for exceptional standards, 
@@ -133,8 +133,8 @@ export default function About() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-8 bg-background">
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
+      <section className="section-spacing-sm bg-background">
+        <div className="section-container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
@@ -153,8 +153,8 @@ export default function About() {
       </section>
 
       {/* Main Content */}
-      <section className="py-20 md:py-32 bg-background">
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
+      <section className="section-spacing bg-background">
+        <div className="section-container">
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
             <div>
               <div className="mb-6">
@@ -167,14 +167,14 @@ export default function About() {
               </h2>
               <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
                 <p>
-                  Curve Hospitality is a distinguished hospitality procurement enterprise that is renowned 
+                  Karan Kothari USA LLC is a distinguished hospitality procurement enterprise that is renowned 
                   for its exceptional standards. Our company operates through domestic and offshore 
                   manufacturing facilities to deliver an extensive range of high-quality products.
                 </p>
                 <p>
                   We specialize in custom manufacturing of case goods, seating, artwork & mirrors, 
                   lighting, drapery & bedding, stone countertops, bathroom fixtures & vanities, 
-                  carpets, and tiles. At Curve Hospitality, we ensure that all client needs and 
+                  carpets, and tiles. At Karan Kothari USA LLC, we ensure that all client needs and 
                   preferences are met with precision and excellence.
                 </p>
                 <p>
@@ -186,7 +186,7 @@ export default function About() {
             <div className="relative">
               <img
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop"
-                alt="Curve Hospitality manufacturing facility"
+                alt="Karan Kothari USA LLC manufacturing facility"
                 className="rounded-lg shadow-lg w-full"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg" />
@@ -230,7 +230,7 @@ export default function About() {
             <div className="relative">
               <img
                 src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=400&fit=crop"
-                alt="Curve Hospitality team at work"
+                alt="Karan Kothari USA LLC team at work"
                 className="rounded-lg shadow-lg w-full"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg" />
@@ -268,7 +268,7 @@ export default function About() {
             Ready to Transform Your Space?
           </h3>
           <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-            Let's discuss how Curve Hospitality can bring your vision to life with our 
+            Let's discuss how Karan Kothari USA LLC can bring your vision to life with our 
             exceptional products and services.
           </p>
           <div className="flex justify-center">

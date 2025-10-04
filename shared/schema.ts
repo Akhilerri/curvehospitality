@@ -1,144 +1,140 @@
 import { sql } from "drizzle-orm";
 import { 
-  pgTable, 
+  sqliteTable, 
   text, 
-  varchar, 
-  uuid, 
-  timestamp, 
   integer, 
-  boolean, 
-  jsonb, 
-  date 
-} from "drizzle-orm/pg-core";
+  uniqueIndex 
+} from "drizzle-orm/sqlite-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 import { relations } from "drizzle-orm";
+import crypto from "crypto";
 
 // Existing users table
-export const users = pgTable("users", {
-  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+export const users = sqliteTable("users", {
+  id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
   username: text("username").notNull().unique(),
   password: text("password").notNull(),
 });
 
 // Companies table for multi-tenant support
-export const companies = pgTable("companies", {
-  id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
-  name: varchar("name", { length: 255 }).notNull(),
+export const companies = sqliteTable("companies", {
+  id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+  name: text("name").notNull(),
   description: text("description"),
   foundedYear: integer("founded_year"),
   mission: text("mission"),
-  values: text("values").array(),
-  createdAt: timestamp("created_at").defaultNow(),
+  values: text("values"), // Stored as JSON string
+  createdAt: integer("created_at", { mode: "timestamp" }).default(sql`(strftime('%s', 'now'))`),
 });
 
 // Team members
-export const teamMembers = pgTable("team_members", {
-  id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
-  companyId: uuid("company_id").references(() => companies.id),
-  name: varchar("name", { length: 255 }).notNull(),
-  role: varchar("role", { length: 255 }).notNull(),
+export const teamMembers = sqliteTable("team_members", {
+  id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+  companyId: text("company_id").references(() => companies.id),
+  name: text("name").notNull(),
+  role: text("role").notNull(),
   bio: text("bio"),
-  imageUrl: varchar("image_url", { length: 500 }),
-  experience: text("experience").array(),
+  imageUrl: text("image_url"),
+  experience: text("experience"), // Stored as JSON string
   orderIndex: integer("order_index").default(0),
-  isActive: boolean("is_active").default(true),
+  isActive: integer("is_active", { mode: "boolean" }).default(true),
 });
 
 // Services
-export const services = pgTable("services", {
-  id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
-  companyId: uuid("company_id").references(() => companies.id),
-  title: varchar("title", { length: 255 }).notNull(),
+export const services = sqliteTable("services", {
+  id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+  companyId: text("company_id").references(() => companies.id),
+  title: text("title").notNull(),
   description: text("description"),
-  capabilities: text("capabilities").array(),
-  processSteps: text("process_steps").array(),
-  images: text("images").array(),
+  capabilities: text("capabilities"), // Stored as JSON string
+  processSteps: text("process_steps"), // Stored as JSON string
+  images: text("images"), // Stored as JSON string
   orderIndex: integer("order_index").default(0),
 });
 
 // Product categories
-export const productCategories = pgTable("product_categories", {
-  id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
-  companyId: uuid("company_id").references(() => companies.id),
-  name: varchar("name", { length: 255 }).notNull(),
+export const productCategories = sqliteTable("product_categories", {
+  id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+  companyId: text("company_id").references(() => companies.id),
+  name: text("name").notNull(),
   description: text("description"),
-  parentId: uuid("parent_id"),
+  parentId: text("parent_id"),
   orderIndex: integer("order_index").default(0),
 });
 
 // Products
-export const products = pgTable("products", {
-  id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
-  companyId: uuid("company_id").references(() => companies.id),
-  categoryId: uuid("category_id").references(() => productCategories.id),
-  name: varchar("name", { length: 255 }).notNull(),
+export const products = sqliteTable("products", {
+  id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+  companyId: text("company_id").references(() => companies.id),
+  categoryId: text("category_id").references(() => productCategories.id),
+  name: text("name").notNull(),
   description: text("description"),
-  specifications: jsonb("specifications"),
-  images: text("images").array(),
-  materials: text("materials").array(),
-  priceRange: varchar("price_range", { length: 50 }),
-  isFeatured: boolean("is_featured").default(false),
+  specifications: text("specifications"), // Stored as JSON string
+  images: text("images"), // Stored as JSON string
+  materials: text("materials"), // Stored as JSON string
+  priceRange: text("price_range"),
+  isFeatured: integer("is_featured", { mode: "boolean" }).default(false),
 });
 
 // Projects
-export const projects = pgTable("projects", {
-  id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
-  companyId: uuid("company_id").references(() => companies.id),
-  title: varchar("title", { length: 255 }).notNull(),
-  client: varchar("client", { length: 255 }),
-  location: varchar("location", { length: 255 }),
-  brand: varchar("brand", { length: 255 }),
-  segment: varchar("segment", { length: 100 }),
+export const projects = sqliteTable("projects", {
+  id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+  companyId: text("company_id").references(() => companies.id),
+  title: text("title").notNull(),
+  client: text("client"),
+  location: text("location"),
+  brand: text("brand"),
+  segment: text("segment"),
   description: text("description"),
-  challenges: text("challenges").array(),
-  solutions: text("solutions").array(),
-  results: text("results").array(),
-  images: jsonb("images"), // Array of image objects with metadata
-  completedAt: date("completed_at"),
-  isFeatured: boolean("is_featured").default(false),
+  challenges: text("challenges"), // Stored as JSON string
+  solutions: text("solutions"), // Stored as JSON string
+  results: text("results"), // Stored as JSON string
+  images: text("images"), // Stored as JSON string
+  completedAt: integer("completed_at", { mode: "timestamp" }),
+  isFeatured: integer("is_featured", { mode: "boolean" }).default(false),
 });
 
 // Blog posts
-export const blogPosts = pgTable("blog_posts", {
-  id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
-  companyId: uuid("company_id").references(() => companies.id),
-  title: varchar("title", { length: 255 }).notNull(),
-  slug: varchar("slug", { length: 255 }).notNull().unique(),
+export const blogPosts = sqliteTable("blog_posts", {
+  id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+  companyId: text("company_id").references(() => companies.id),
+  title: text("title").notNull(),
+  slug: text("slug").notNull().unique(),
   excerpt: text("excerpt"),
   content: text("content").notNull(),
-  author: varchar("author", { length: 255 }),
-  category: varchar("category", { length: 100 }),
-  tags: text("tags").array(),
-  featuredImage: varchar("featured_image", { length: 500 }),
-  publishedAt: timestamp("published_at"),
-  isPublished: boolean("is_published").default(false),
+  author: text("author"),
+  category: text("category"),
+  tags: text("tags"), // Stored as JSON string
+  featuredImage: text("featured_image"),
+  publishedAt: integer("published_at", { mode: "timestamp" }),
+  isPublished: integer("is_published", { mode: "boolean" }).default(false),
 });
 
 // Downloadable guides
-export const guides = pgTable("guides", {
-  id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
-  companyId: uuid("company_id").references(() => companies.id),
-  title: varchar("title", { length: 255 }).notNull(),
+export const guides = sqliteTable("guides", {
+  id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+  companyId: text("company_id").references(() => companies.id),
+  title: text("title").notNull(),
   description: text("description"),
-  fileUrl: varchar("file_url", { length: 500 }).notNull(),
-  fileSize: varchar("file_size", { length: 20 }),
+  fileUrl: text("file_url").notNull(),
+  fileSize: text("file_size"),
   downloadCount: integer("download_count").default(0),
-  requiresLeadCapture: boolean("requires_lead_capture").default(true),
-  isActive: boolean("is_active").default(true),
+  requiresLeadCapture: integer("requires_lead_capture", { mode: "boolean" }).default(true),
+  isActive: integer("is_active", { mode: "boolean" }).default(true),
 });
 
 // Contact form submissions
-export const contactSubmissions = pgTable("contact_submissions", {
-  id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
-  companyId: uuid("company_id").references(() => companies.id),
-  name: varchar("name", { length: 255 }).notNull(),
-  email: varchar("email", { length: 255 }).notNull(),
-  phone: varchar("phone", { length: 50 }),
-  projectType: varchar("project_type", { length: 100 }),
+export const contactSubmissions = sqliteTable("contact_submissions", {
+  id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+  companyId: text("company_id").references(() => companies.id),
+  name: text("name").notNull(),
+  email: text("email").notNull(),
+  phone: text("phone"),
+  projectType: text("project_type"),
   message: text("message").notNull(),
-  submittedAt: timestamp("submitted_at").defaultNow(),
-  status: varchar("status", { length: 50 }).default("new"),
+  submittedAt: integer("submitted_at", { mode: "timestamp" }).default(sql`(strftime('%s', 'now'))`),
+  status: text("status").default("new"),
 });
 
 // Define relationships

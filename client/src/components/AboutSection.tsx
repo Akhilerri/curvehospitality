@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Wrench, Shield, Users, Package } from "lucide-react";
-import showroomImage from "@assets/generated_images/Modern_furniture_showroom_display_154964c0.png";
+// Try local image first, fallback to stock image
+const showroomImage = "/assets/generated_images/Modern_furniture_showroom_display_154964c0.png";
+const showroomImageFallback = "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2058&q=80";
 
 export function AboutSection() {
   const features = [
@@ -71,6 +73,10 @@ export function AboutSection() {
               src={showroomImage}
               alt="Modern furniture showroom"
               className="rounded-lg shadow-lg w-full"
+              loading="lazy"
+              onError={(e) => {
+                e.currentTarget.src = showroomImageFallback;
+              }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg" />
           </div>

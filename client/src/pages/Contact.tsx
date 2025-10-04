@@ -3,11 +3,11 @@ import { ContactSection } from '../components/sections/ContactSection';
 
 const Contact: React.FC = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="page-container bg-background">
       {/* Hero Section */}
-      <div className="bg-gradient-to-b from-muted/50 to-background py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="text-center space-y-6">
+      <section className="bg-gradient-to-b from-muted/50 to-background section-spacing">
+        <div className="section-container">
+          <div className="section-header">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
               Let's Create Something
               <span className="block text-primary">Amazing Together</span>
@@ -18,16 +18,18 @@ const Contact: React.FC = () => {
             </p>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Contact Section */}
-      <div className="container mx-auto px-4 py-16">
-        <ContactSection />
-      </div>
+      <section className="section-spacing">
+        <div className="section-container">
+          <ContactSection />
+        </div>
+      </section>
 
       {/* Additional Information */}
-      <div className="bg-muted/30 py-16">
-        <div className="container mx-auto px-4">
+      <section className="bg-muted/30 section-spacing">
+        <div className="section-container">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div className="space-y-3">
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto">
@@ -66,7 +68,7 @@ const Contact: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };
