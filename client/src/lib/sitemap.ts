@@ -240,7 +240,7 @@ ${urlElements}
 
 // Create singleton instance
 export const sitemapGenerator = new SitemapGenerator({
-  baseUrl: (typeof window !== 'undefined' && import.meta.env?.VITE_BASE_URL) || process.env.VITE_BASE_URL || 'https://curvehospitality.com',
+  baseUrl: (typeof window !== 'undefined' && import.meta.env?.VITE_BASE_URL) || process.env.VITE_BASE_URL || 'https://karankotha riusallc.com',
   defaultChangefreq: 'weekly',
   defaultPriority: 0.5
 });
@@ -300,5 +300,5 @@ export class RobotsGenerator {
 }
 
 export const robotsGenerator = new RobotsGenerator(
-  (typeof window !== 'undefined' && import.meta.env?.VITE_BASE_URL) || process.env.VITE_BASE_URL || 'https://curvehospitality.com'
+  (typeof window !== 'undefined' && import.meta.env?.VITE_BASE_URL) || process.env.VITE_BASE_URL || 'https://karankotha riusallc.com'
 );

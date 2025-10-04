@@ -17,7 +17,7 @@ export function TestimonialsSection() {
     {
       id: 2,
       quote:
-        "Curve Hospitality has consistently demonstrated excellence in their projects. The quality of their work, showcasing meticulous attention to detail and superior craftsmanship, is evident in every project they undertake.",
+        "Karan Kothari USA LLC has consistently demonstrated excellence in their projects. The quality of their work, showcasing meticulous attention to detail and superior craftsmanship, is evident in every project they undertake.",
       author: "Surpreet Singh",
       role: "Hotel Developer",
     },

@@ -1,12 +1,12 @@
 import { vi } from 'vitest';
 
 // Mock environment variables
-vi.stubEnv('VITE_BASE_URL', 'https://curvehospitality.com');
+vi.stubEnv('VITE_BASE_URL', 'https://karankotha riusallc.com');
 
 // Mock DOM APIs that might not be available in test environment
 Object.defineProperty(window, 'location', {
   value: {
-    href: 'https://curvehospitality.com',
+    href: 'https://karankotha riusallc.com',
     pathname: '/',
     search: '',
     hash: ''

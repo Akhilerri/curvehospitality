@@ -29,7 +29,7 @@ const mockDocument = {
 // Mock window object
 const mockWindow = {
   location: {
-    href: 'https://curvehospitality.com/test',
+    href: 'https://karankotha riusallc.com/test',
     pathname: '/test'
   }
 };
@@ -53,12 +53,12 @@ describe('SEOManager', () => {
 
   it('should update document title', () => {
     const metadata = {
-      title: 'Test Page - Curve Hospitality',
+      title: 'Test Page - Karan Kothari USA LLC',
       description: 'Test description'
     };
 
     seoManager.updateMetaTags(metadata);
-    expect(mockDocument.title).toBe('Test Page - Curve Hospitality');
+    expect(mockDocument.title).toBe('Test Page - Karan Kothari USA LLC');
   });
 
   it('should generate business structured data', () => {

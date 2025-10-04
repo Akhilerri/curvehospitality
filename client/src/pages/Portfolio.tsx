@@ -24,7 +24,7 @@ export const Portfolio: React.FC = () => {
 
   // Set page title
   useEffect(() => {
-    document.title = 'Portfolio - Our Projects | CurveRedo';
+    document.title = 'Portfolio - Our Projects | Karan Kothari USA LLC';
   }, []);
 
   const handleProjectClick = (project: Project) => {

@@ -27,7 +27,7 @@ export class SEOManager {
   private company?: CompanyInfo;
 
   private constructor() {
-    this.baseUrl = import.meta.env?.VITE_BASE_URL || 'https://curvehospitality.com';
+    this.baseUrl = import.meta.env?.VITE_BASE_URL || 'https://karankotha riusallc.com';
     this.defaultImage = `${this.baseUrl}/images/og-default.jpg`;
   }
 
@@ -59,7 +59,7 @@ export class SEOManager {
     this.updateMetaTag('og:type', metadata.type || 'website', 'property');
     this.updateMetaTag('og:url', metadata.url || window.location.href, 'property');
     this.updateMetaTag('og:image', metadata.image || this.defaultImage, 'property');
-    this.updateMetaTag('og:site_name', this.company?.name || 'Curve Hospitality', 'property');
+    this.updateMetaTag('og:site_name', this.company?.name || 'Karan Kothari USA LLC', 'property');
 
     // Twitter Card tags
     this.updateMetaTag('twitter:card', 'summary_large_image', 'name');
@@ -157,12 +157,12 @@ export class SEOManager {
       contactPoint: {
         '@type': 'ContactPoint',
         contactType: 'customer service',
-        email: 'info@curvehospitality.com',
+        email: 'office@kkusallc.com',
         telephone: '+1-555-0123'
       },
       sameAs: [
-        'https://www.linkedin.com/company/curve-hospitality',
-        'https://www.instagram.com/curvehospitality'
+        'https://www.linkedin.com/company/karan-kothari-usa-llc',
+        'https://www.instagram.com/karankotha riusallc'
       ],
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
@@ -227,11 +227,11 @@ export class SEOManager {
       image: product.images?.[0] ? `${this.baseUrl}${product.images[0]}` : this.defaultImage,
       brand: {
         '@type': 'Brand',
-        name: this.company?.name || 'Curve Hospitality'
+        name: this.company?.name || 'Karan Kothari USA LLC'
       },
       manufacturer: {
         '@type': 'Organization',
-        name: this.company?.name || 'Curve Hospitality'
+        name: this.company?.name || 'Karan Kothari USA LLC'
       },
       category: product.category?.name,
       material: product.materials?.join(', '),
@@ -242,7 +242,7 @@ export class SEOManager {
         availability: 'https://schema.org/InStock',
         seller: {
           '@type': 'Organization',
-          name: this.company?.name || 'Curve Hospitality'
+          name: this.company?.name || 'Karan Kothari USA LLC'
         }
       } : undefined
     };
@@ -261,7 +261,7 @@ export class SEOManager {
       },
       publisher: {
         '@type': 'Organization',
-        name: this.company?.name || 'Curve Hospitality',
+        name: this.company?.name || 'Karan Kothari USA LLC',
         logo: {
           '@type': 'ImageObject',
           url: `${this.baseUrl}/images/logo.png`
@@ -285,7 +285,7 @@ export class SEOManager {
       image: project.images?.[0]?.url ? `${this.baseUrl}${project.images[0].url}` : this.defaultImage,
       creator: {
         '@type': 'Organization',
-        name: this.company?.name || 'Curve Hospitality'
+        name: this.company?.name || 'Karan Kothari USA LLC'
       },
       dateCreated: project.completedAt,
       locationCreated: project.location ? {
@@ -304,51 +304,51 @@ export const seoManager = SEOManager.getInstance();
 // Default SEO configurations for different page types
 export const defaultSEOConfigs = {
   home: {
-    title: 'Curve Hospitality - Premier FF&E Procurement & Interior Design',
+    title: 'Karan Kothari USA LLC - Premier FF&E Procurement & Interior Design',
     description: 'Distinguished hospitality procurement enterprise specializing in custom FF&E manufacturing, interior design, and quality hospitality furniture for hotels and restaurants.',
     keywords: ['hospitality furniture', 'FF&E procurement', 'interior design', 'hotel furniture', 'restaurant furniture', 'custom manufacturing'],
     type: 'website' as const
   },
   about: {
-    title: 'About Us - Curve Hospitality',
-    description: 'Learn about Curve Hospitality\'s history, mission, values, and expert team dedicated to delivering exceptional hospitality solutions.',
-    keywords: ['about curve hospitality', 'company history', 'hospitality experts', 'interior design team'],
+    title: 'About Us - Karan Kothari USA LLC',
+    description: 'Learn about Karan Kothari USA LLC\'s history, mission, values, and expert team dedicated to delivering exceptional hospitality solutions.',
+    keywords: ['about karan kothari usa llc', 'company history', 'hospitality experts', 'interior design team'],
     type: 'website' as const
   },
   services: {
-    title: 'Services - Curve Hospitality',
+    title: 'Services - Karan Kothari USA LLC',
     description: 'Comprehensive hospitality services including interior design, FF&E manufacturing, procurement, and project management for hotels and restaurants.',
     keywords: ['hospitality services', 'interior design services', 'FF&E manufacturing', 'procurement services', 'project management'],
     type: 'website' as const
   },
   products: {
-    title: 'Products - Curve Hospitality',
+    title: 'Products - Karan Kothari USA LLC',
     description: 'Explore our extensive catalog of hospitality furniture, fixtures, and equipment including seating, lighting, case goods, and custom solutions.',
     keywords: ['hospitality products', 'hotel furniture', 'restaurant furniture', 'custom furniture', 'FF&E catalog'],
     type: 'website' as const
   },
   portfolio: {
-    title: 'Portfolio - Curve Hospitality',
+    title: 'Portfolio - Karan Kothari USA LLC',
     description: 'View our portfolio of completed hospitality projects showcasing innovative design solutions and exceptional craftsmanship.',
     keywords: ['hospitality portfolio', 'hotel projects', 'restaurant projects', 'interior design portfolio', 'case studies'],
     type: 'website' as const
   },
   process: {
-    title: 'Our Process - Curve Hospitality',
+    title: 'Our Process - Karan Kothari USA LLC',
     description: 'Discover our proven project workflow and methodology for delivering successful hospitality design and procurement projects.',
     keywords: ['design process', 'project workflow', 'hospitality methodology', 'project management process'],
     type: 'website' as const
   },
   resources: {
-    title: 'Resources - Curve Hospitality',
+    title: 'Resources - Karan Kothari USA LLC',
     description: 'Access valuable insights, industry guides, and expert knowledge to help with your hospitality design and procurement decisions.',
     keywords: ['hospitality resources', 'design guides', 'industry insights', 'hospitality blog', 'design tips'],
     type: 'website' as const
   },
   contact: {
-    title: 'Contact Us - Curve Hospitality',
-    description: 'Get in touch with Curve Hospitality for your next hospitality project. Contact our expert team for consultations and quotes.',
-    keywords: ['contact curve hospitality', 'hospitality consultation', 'project quote', 'get in touch'],
+    title: 'Contact Us - Karan Kothari USA LLC',
+    description: 'Get in touch with Karan Kothari USA LLC for your next hospitality project. Contact our expert team for consultations and quotes.',
+    keywords: ['contact karan kothari usa llc', 'hospitality consultation', 'project quote', 'get in touch'],
     type: 'website' as const
   }
 };

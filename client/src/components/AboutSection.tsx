@@ -44,14 +44,14 @@ export function AboutSection() {
           <div>
             <div className="mb-4">
               <span className="text-sm font-semibold uppercase tracking-wider text-primary">
-                About Curve Hospitality
+                About Karan Kothari USA LLC
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-serif font-light text-foreground mb-6">
               Curve Quality
             </h2>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              Curve Hospitality is a distinguished hospitality procurement
+              Karan Kothari USA LLC is a distinguished hospitality procurement
               enterprise that is renowned for its exceptional standards. Our
               company operates through domestic and offshore manufacturing
               facilities to deliver an extensive range of high-quality products.

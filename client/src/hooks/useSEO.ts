@@ -48,7 +48,7 @@ export function useSEO({ metadata, structuredData, breadcrumbs }: UseSEOOptions)
     // Cleanup function to reset title when component unmounts
     return () => {
       // Reset to default title if needed
-      document.title = 'Curve Hospitality - Premier FF&E Procurement & Interior Design';
+      document.title = 'Karan Kothari USA LLC - Premier FF&E Procurement & Interior Design';
     };
   }, [metadata, structuredData, breadcrumbs]);
 }
@@ -56,7 +56,7 @@ export function useSEO({ metadata, structuredData, breadcrumbs }: UseSEOOptions)
 // Convenience hooks for specific page types
 export function useHomeSEO(customMetadata?: Partial<SEOMetadata>) {
   const metadata: SEOMetadata = {
-    title: 'Curve Hospitality - Premier FF&E Procurement & Interior Design',
+    title: 'Karan Kothari USA LLC - Premier FF&E Procurement & Interior Design',
     description: 'Distinguished hospitality procurement enterprise specializing in custom FF&E manufacturing, interior design, and quality hospitality furniture for hotels and restaurants.',
     keywords: ['hospitality furniture', 'FF&E procurement', 'interior design', 'hotel furniture', 'restaurant furniture', 'custom manufacturing'],
     type: 'website',
@@ -78,7 +78,7 @@ export function usePageSEO(
   }
 ) {
   const metadata: SEOMetadata = {
-    title: `${title} - Curve Hospitality`,
+    title: `${title} - Karan Kothari USA LLC`,
     description,
     keywords: options?.keywords,
     type: options?.type || 'website',
@@ -95,7 +95,7 @@ export function usePageSEO(
 
 export function useProductSEO(product: any) {
   const metadata: SEOMetadata = {
-    title: `${product.name} - Products - Curve Hospitality`,
+    title: `${product.name} - Products - Karan Kothari USA LLC`,
     description: product.description || `High-quality ${product.name} for hospitality spaces. Custom manufacturing and design solutions.`,
     keywords: [product.name, product.category?.name, 'hospitality furniture', 'custom furniture'].filter(Boolean),
     type: 'product',
@@ -117,7 +117,7 @@ export function useProductSEO(product: any) {
 
 export function useArticleSEO(article: any) {
   const metadata: SEOMetadata = {
-    title: `${article.title} - Blog - Curve Hospitality`,
+    title: `${article.title} - Blog - Karan Kothari USA LLC`,
     description: article.excerpt || article.description,
     keywords: article.tags || [],
     type: 'article',
@@ -144,7 +144,7 @@ export function useArticleSEO(article: any) {
 
 export function useProjectSEO(project: any) {
   const metadata: SEOMetadata = {
-    title: `${project.title} - Portfolio - Curve Hospitality`,
+    title: `${project.title} - Portfolio - Karan Kothari USA LLC`,
     description: project.description || `${project.title} project showcasing our expertise in hospitality design and manufacturing.`,
     keywords: [project.title, project.brand, project.segment, project.location, 'hospitality project', 'case study'].filter(Boolean),
     type: 'article',

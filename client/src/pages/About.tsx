@@ -163,7 +163,7 @@ export default function About() {
                 </span>
               </div>
               <h2 className="text-4xl md:text-5xl font-serif font-light text-foreground mb-6">
-                Curve Quality Excellence
+                Karan Kothari USA LLC Quality Excellence
               </h2>
               <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
                 <p>

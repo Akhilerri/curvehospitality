@@ -59,7 +59,7 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <h3 className="text-2xl font-serif font-light text-foreground mb-4">
-              Curve
+              Karan Kothari USA LLC
             </h3>
             <p className="text-muted-foreground mb-4">
               Distinguished hospitality procurement enterprise renowned for
@@ -164,7 +164,7 @@ export function Footer() {
         <div className="border-t border-border pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-muted-foreground">
-              © {currentYear} Curve Hospitality. All rights reserved.
+              © {currentYear} Karan Kothari USA LLC. All rights reserved.
             </p>
             <div className="flex gap-6">
               <a
