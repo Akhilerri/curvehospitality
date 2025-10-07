@@ -185,8 +185,8 @@ export default function About() {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop"
-                alt="Karan Kothari USA LLC manufacturing facility"
+                src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=800&q=80"
+                alt="Luxury hotel lobby showcasing our design excellence"
                 className="rounded-lg shadow-lg w-full"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg" />

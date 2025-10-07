@@ -44,10 +44,10 @@ export const mockProjects: Project[] = [
       'LEED Gold certification achieved'
     ],
     images: [
-      createProjectImage('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop', 'before', 1, 'Lobby', 'Original lobby with dated furnishings'),
-      createProjectImage('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop', 'after', 2, 'Lobby', 'Renovated lobby with modern luxury design'),
-      createProjectImage('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop', 'before', 3, 'Guest Room', 'Standard guest room before renovation'),
-      createProjectImage('https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&h=600&fit=crop', 'after', 4, 'Guest Room', 'Luxury guest room with custom furnishings'),
+      createProjectImage('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80', 'after', 1, 'Lobby', 'Luxurious hotel lobby with modern design'),
+      createProjectImage('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80', 'after', 2, 'Lobby', 'Grand hotel entrance with elegant furnishings'),
+      createProjectImage('https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80', 'after', 3, 'Guest Room', 'Luxury hotel suite with city views'),
+      createProjectImage('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80', 'after', 4, 'Guest Room', 'Modern hotel room with premium amenities'),
     ],
     completedAt: new Date('2023-08-15'),
     isFeatured: true,
@@ -89,9 +89,9 @@ export const mockProjects: Project[] = [
       'WELL Building Standard certification'
     ],
     images: [
-      createProjectImage('https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop', 'before', 1, 'Open Office', 'Traditional cubicle layout'),
-      createProjectImage('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&h=600&fit=crop', 'after', 2, 'Open Office', 'Modern collaborative workspace'),
-      createProjectImage('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop', 'final', 3, 'Meeting Room', 'Glass-walled conference room with tech integration'),
+      createProjectImage('https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80', 'final', 1, 'Lobby', 'Modern hotel reception area'),
+      createProjectImage('https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80', 'final', 2, 'Lounge', 'Contemporary hotel lounge space'),
+      createProjectImage('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80', 'final', 3, 'Outdoor', 'Hotel outdoor terrace with seating'),
     ],
     completedAt: new Date('2023-06-30'),
     isFeatured: true,
@@ -133,8 +133,9 @@ export const mockProjects: Project[] = [
       '95% positive customer reviews'
     ],
     images: [
-      createProjectImage('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop', 'final', 1, 'Dining Room', 'Main dining area with coastal design elements'),
-      createProjectImage('https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&h=600&fit=crop', 'final', 2, 'Bar Area', 'Custom bar with nautical-inspired details'),
+      createProjectImage('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80', 'final', 1, 'Dining Room', 'Elegant restaurant interior with ambient lighting'),
+      createProjectImage('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80', 'final', 2, 'Dining Room', 'Fine dining restaurant with sophisticated decor'),
+      createProjectImage('https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80', 'final', 3, 'Bar Area', 'Modern hotel bar with premium finishes'),
     ],
     completedAt: new Date('2023-04-20'),
     isFeatured: false,
@@ -176,8 +177,9 @@ export const mockProjects: Project[] = [
       'Client referrals to other residents'
     ],
     images: [
-      createProjectImage('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop', 'final', 1, 'Living Room', 'Spacious living area with city views'),
-      createProjectImage('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop', 'final', 2, 'Kitchen', 'Gourmet kitchen with custom cabinetry'),
+      createProjectImage('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80', 'final', 1, 'Suite', 'Luxury hotel suite living area'),
+      createProjectImage('https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80', 'final', 2, 'Bedroom', 'Premium hotel bedroom with elegant design'),
+      createProjectImage('https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80', 'final', 3, 'Bathroom', 'Spa-like hotel bathroom with luxury fixtures'),
     ],
     completedAt: new Date('2023-09-10'),
     isFeatured: false,
@@ -211,8 +213,9 @@ export const mockProjects: Project[] = [
       'Improved staff workflow efficiency'
     ],
     images: [
-      createProjectImage('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop', 'final', 1, 'Lobby', 'Welcoming reception area with natural elements'),
-      createProjectImage('https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=800&h=600&fit=crop', 'final', 2, 'Treatment Room', 'Modern treatment room with calming design'),
+      createProjectImage('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80', 'final', 1, 'Pool', 'Luxury hotel pool area with cabanas'),
+      createProjectImage('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80', 'final', 2, 'Exterior', 'Modern hotel exterior architecture'),
+      createProjectImage('https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80', 'final', 3, 'Spa', 'Hotel spa and wellness center'),
     ],
     completedAt: new Date('2023-07-25'),
     isFeatured: true,
@@ -254,8 +257,9 @@ export const mockProjects: Project[] = [
       'Store design replicated in 5 additional locations'
     ],
     images: [
-      createProjectImage('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop', 'final', 1, 'Entrance', 'Eye-catching storefront with brand elements'),
-      createProjectImage('https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&h=600&fit=crop', 'final', 2, 'Sales Floor', 'Flexible merchandising area with digital integration'),
+      createProjectImage('https://images.unsplash.com/photo-1445019980597-93fa8acb246c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80', 'final', 1, 'Rooftop', 'Hotel rooftop bar with city views'),
+      createProjectImage('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80', 'final', 2, 'Terrace', 'Outdoor hotel terrace seating area'),
+      createProjectImage('https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80', 'final', 3, 'Garden', 'Hotel garden and outdoor lounge'),
     ],
     completedAt: new Date('2023-05-15'),
     isFeatured: false,
